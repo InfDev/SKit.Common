@@ -11,6 +11,7 @@
 ## Extensions
 
 - DateTimeEntensions
+- StringExtensions
 
 ## Helpers
 
