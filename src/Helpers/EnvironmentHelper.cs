@@ -6,7 +6,7 @@
 using System.Runtime.InteropServices;
 using System.Linq;
 
-namespace SKit.Misc.Common.Helpers
+namespace SKit.Common.Helpers
 {
     using SKit.Common.Exceptions;
 
