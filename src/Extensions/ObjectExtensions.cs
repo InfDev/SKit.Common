@@ -1,6 +1,10 @@
-﻿using System;
+﻿// Copyright (c) Alexander Shlyakhto (InfDev). All rights reserved.
+// Licensed under the MIT License. See LICENSE in the project root for license information.
+// Created:  2019.05.26
+// Modified: 2020.05.14
+
+using System;
 using System.Collections.Generic;
-using System.Text;
 
 namespace SKit.Common.Extensions
 {
