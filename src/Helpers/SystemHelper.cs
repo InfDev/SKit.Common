@@ -10,9 +10,12 @@ using System.Runtime.InteropServices;
 using System.Diagnostics;
 using System.Globalization;
 using System.Resources;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Configuration;
 
 using SKit.Common.Models;
 using SKit.Common.Resources;
+
 
 [assembly: NeutralResourcesLanguage("en")]
 
@@ -81,6 +84,17 @@ namespace SKit.Common.Helpers
         }
 
         /// <summary>
+        /// The current hosting environment name
+        /// </summary>
+        /// <returns></returns>
+        public static string HostingEnvironmentName(IConfiguration configuration)
+        {
+            if (configuration != null)
+                return configuration[HostDefaults.EnvironmentKey]; //.GetValue<string>(HostDefaults.EnvironmentKey);
+            return null;
+        }
+
+        /// <summary>
         /// Get current environment runtime
         /// </summary>
         /// <returns></returns>
@@ -98,8 +112,21 @@ namespace SKit.Common.Helpers
             return Environment.ProcessorCount.ToString(CultureInfo.CurrentCulture);
         }
 
-        public static IEnumerable<ValueText> GetSystemInfo()
+        public static IEnumerable<ValueText> GetSystemInfo(IConfiguration configuration = null)
         {
+            string envNameText;
+            string envNameValue;
+            if (configuration == null)
+            {
+                envNameText = SR.RuntimeEnvironment_ASPNETCORE_ENVIRONMENT;
+                envNameValue = GetASPNETCoreEnvironment();
+            }
+            else
+            {
+                envNameText = SR.HostingEnvironmentName;
+                envNameValue = HostingEnvironmentName(configuration);
+            }
+            
             return new List<ValueText>
             {
                 new ValueText
@@ -129,8 +156,8 @@ namespace SKit.Common.Helpers
                 },
                 new ValueText
                 {
-                    Value = GetASPNETCoreEnvironment(),
-                    Text = SR.RuntimeEnvironment_ASPNETCORE_ENVIRONMENT
+                    Value = envNameValue,
+                    Text = envNameText
                 },
                 new ValueText
                 {

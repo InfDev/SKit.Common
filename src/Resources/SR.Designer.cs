@@ -79,6 +79,15 @@ namespace SKit.Common.Resources {
         }
         
         /// <summary>
+        ///   Ищет локализованную строку, похожую на Hosting environment name.
+        /// </summary>
+        internal static string HostingEnvironmentName {
+            get {
+                return ResourceManager.GetString("HostingEnvironmentName", resourceCulture);
+            }
+        }
+        
+        /// <summary>
         ///   Ищет локализованную строку, похожую на The number of processors on the machine.
         /// </summary>
         internal static string NumberOfProcessors {

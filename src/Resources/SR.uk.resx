@@ -150,4 +150,7 @@
   <data name="Value" xml:space="preserve">
     <value>Значення</value>
   </data>
+  <data name="HostingEnvironmentName" xml:space="preserve">
+    <value>Ім'я середовища хостингу</value>
+  </data>
 </root>

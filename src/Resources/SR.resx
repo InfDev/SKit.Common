@@ -123,6 +123,9 @@
   <data name="FrameworkDescription" xml:space="preserve">
     <value>Framework Description</value>
   </data>
+  <data name="HostingEnvironmentName" xml:space="preserve">
+    <value>Hosting environment name</value>
+  </data>
   <data name="NumberOfProcessors" xml:space="preserve">
     <value>The number of processors on the machine</value>
   </data>
